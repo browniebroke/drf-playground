@@ -1,0 +1,13 @@
+[project]
+name = "django-rest-framework-playground"
+version = "0.1.0"
+description = "A playground DRF project"
+readme = "README.md"
+authors = [
+    { name = "Bruno Alla", email = "oss@browniebroke.com" }
+]
+requires-python = "==3.14.*"
+dependencies = [
+    "django==6.1.1",
+    "djangorestframework==3.18.1",
+]
