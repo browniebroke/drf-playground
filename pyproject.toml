@@ -45,13 +45,14 @@ lint.ignore = [
   "D401", # First line of docstring should be in imperative mood
 ]
 lint.per-file-ignores."conftest.py" = [ "D100" ]
-lint.per-file-ignores."tests/**/*" = [
+lint.per-file-ignores."**/tests/**/*" = [
   "D100",
   "D101",
   "D102",
   "D103",
   "D104",
   "S101",
+  "S106",
 ]
 
 [tool.pytest]
