@@ -39,41 +39,41 @@ drf_playground/
 
 ## DRF feature map
 
-| Feature | Where |
-|---|---|
-| `@api_view` function view | `core/views.py` `ping` |
-| `APIView` | `core/views.py` `WhoAmIView`, `StatsView` |
-| `GenericAPIView` + mixins, custom `lookup_field` | `catalog/views.py` `GenreListView`, `GenreDetailView` (slug lookup) |
-| Concrete generics (`ListCreateAPIView`, `RetrieveUpdateDestroyAPIView`) | `catalog/views.py` `Publisher*View` |
-| `ModelViewSet`, per-action serializer (`get_serializer_class`) | `catalog/views.py` `BookViewSet` |
-| `GenericViewSet` + chosen mixins (no update/delete) | `library/views.py` `LoanViewSet` |
-| `@action` detail/list, custom `url_path`, per-action `serializer_class` / `permission_classes` | `BookViewSet.copies`, `.recently_added`, `LoanViewSet.return_loan`, `ShelfViewSet.add_books` |
-| Routers: `SimpleRouter` per app merged into a `DefaultRouter`, `basename`, `lookup_field` in URLs | `catalog/urls.py`, `library/urls.py`, `drf_playground/api.py`, `CopyViewSet` (barcode) |
-| `format_suffix_patterns` (`/ping.json`) | `core/urls.py` |
-| `ModelSerializer`, `read_only_fields`, `extra_kwargs`, `source=` | everywhere; `library/serializers.py` `LoanSerializer` |
-| `HyperlinkedModelSerializer`, `HyperlinkedRelatedField` | `catalog/serializers.py` `AuthorSerializer` |
-| Plain `Serializer` (non-model, input-only / output-only) | `core/serializers.py` `StatsSerializer`, `library/serializers.py` `ShelfBooksSerializer` |
-| Nested read serializers, `SerializerMethodField`, annotated read-only fields | `BookDetailSerializer` |
-| Nested **writable** serializer (`create()` override) | `BookWriteSerializer.copies` |
-| `PrimaryKeyRelatedField`, `SlugRelatedField`, `StringRelatedField` | `BookWriteSerializer`, `BookListSerializer` |
-| `HiddenField` + `CurrentUserDefault` | `ReviewSerializer.author`, `ShelfSerializer.owner` |
-| Field-level `validate_<field>`, object-level `validate()`, custom validator shared with model | `BookWriteSerializer`, `catalog/validators.py` |
-| `UniqueTogetherValidator` | `ReviewSerializer`, `ShelfSerializer` |
-| Pagination: custom `PageNumberPagination` (`page_size` param) | `core/pagination.py` (project default) |
-| `LimitOffsetPagination` | `PublisherListCreateView` |
-| `CursorPagination` | `library/pagination.py`, `LoanViewSet` |
-| Paginating inside an `@action` | `AuthorViewSet.books`, `ShelfViewSet.books`, `LoanViewSet.overdue` |
-| django-filter `FilterSet` (range, M2M by slug, method filters, filtering on annotations) | `catalog/filters.py`, `library/filters.py` |
-| `SearchFilter`, `OrderingFilter` | most list views |
-| Custom filter backend (row-level visibility) | `library/filters.py` `OwnerOrPublicFilterBackend` |
-| Auth: Token (`authtoken`), Session, Basic; 401 vs 403 ordering | `settings.py`, `api.py` `auth/token/` |
-| Permissions: `IsAuthenticatedOrReadOnly`, `IsAuthenticated`, custom request-level and object-level | `core/permissions.py`, `ReviewViewSet`, `ShelfViewSet` |
-| Queryset scoping by user (`get_queryset`), `perform_create` | `LoanViewSet` |
-| Throttling: anon/user defaults + `ScopedRateThrottle` on a single action | `settings.py`, `LoanViewSet.get_throttles` |
-| Versioning: `URLPathVersioning` (`/api/v1/`), version-aware `reverse` | `urls.py`, `settings.py` |
-| Custom `APIException` (409) and custom `EXCEPTION_HANDLER` | `core/exceptions.py`, `LoanViewSet.return_loan` |
-| OpenAPI schema + Swagger/Redoc (drf-spectacular), `extend_schema`, `inline_serializer` | `api.py`, `core/views.py` |
-| Testing: `APIClient`, `force_authenticate`, `credentials()`, pytest fixtures | `conftest.py`, `apps/*/tests/` |
+| Feature                                                                                            | Where                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `@api_view` function view                                                                          | `core/views.py` `ping`                                                                       |
+| `APIView`                                                                                          | `core/views.py` `WhoAmIView`, `StatsView`                                                    |
+| `GenericAPIView` + mixins, custom `lookup_field`                                                   | `catalog/views.py` `GenreListView`, `GenreDetailView` (slug lookup)                          |
+| Concrete generics (`ListCreateAPIView`, `RetrieveUpdateDestroyAPIView`)                            | `catalog/views.py` `Publisher*View`                                                          |
+| `ModelViewSet`, per-action serializer (`get_serializer_class`)                                     | `catalog/views.py` `BookViewSet`                                                             |
+| `GenericViewSet` + chosen mixins (no update/delete)                                                | `library/views.py` `LoanViewSet`                                                             |
+| `@action` detail/list, custom `url_path`, per-action `serializer_class` / `permission_classes`     | `BookViewSet.copies`, `.recently_added`, `LoanViewSet.return_loan`, `ShelfViewSet.add_books` |
+| Routers: `SimpleRouter` per app merged into a `DefaultRouter`, `basename`, `lookup_field` in URLs  | `catalog/urls.py`, `library/urls.py`, `drf_playground/api.py`, `CopyViewSet` (barcode)       |
+| `format_suffix_patterns` (`/ping.json`)                                                            | `core/urls.py`                                                                               |
+| `ModelSerializer`, `read_only_fields`, `extra_kwargs`, `source=`                                   | everywhere; `library/serializers.py` `LoanSerializer`                                        |
+| `HyperlinkedModelSerializer`, `HyperlinkedRelatedField`                                            | `catalog/serializers.py` `AuthorSerializer`                                                  |
+| Plain `Serializer` (non-model, input-only / output-only)                                           | `core/serializers.py` `StatsSerializer`, `library/serializers.py` `ShelfBooksSerializer`     |
+| Nested read serializers, `SerializerMethodField`, annotated read-only fields                       | `BookDetailSerializer`                                                                       |
+| Nested **writable** serializer (`create()` override)                                               | `BookWriteSerializer.copies`                                                                 |
+| `PrimaryKeyRelatedField`, `SlugRelatedField`, `StringRelatedField`                                 | `BookWriteSerializer`, `BookListSerializer`                                                  |
+| `HiddenField` + `CurrentUserDefault`                                                               | `ReviewSerializer.author`, `ShelfSerializer.owner`                                           |
+| Field-level `validate_<field>`, object-level `validate()`, custom validator shared with model      | `BookWriteSerializer`, `catalog/validators.py`                                               |
+| `UniqueTogetherValidator`                                                                          | `ReviewSerializer`, `ShelfSerializer`                                                        |
+| Pagination: custom `PageNumberPagination` (`page_size` param)                                      | `core/pagination.py` (project default)                                                       |
+| `LimitOffsetPagination`                                                                            | `PublisherListCreateView`                                                                    |
+| `CursorPagination`                                                                                 | `library/pagination.py`, `LoanViewSet`                                                       |
+| Paginating inside an `@action`                                                                     | `AuthorViewSet.books`, `ShelfViewSet.books`, `LoanViewSet.overdue`                           |
+| django-filter `FilterSet` (range, M2M by slug, method filters, filtering on annotations)           | `catalog/filters.py`, `library/filters.py`                                                   |
+| `SearchFilter`, `OrderingFilter`                                                                   | most list views                                                                              |
+| Custom filter backend (row-level visibility)                                                       | `library/filters.py` `OwnerOrPublicFilterBackend`                                            |
+| Auth: Token (`authtoken`), Session, Basic; 401 vs 403 ordering                                     | `settings.py`, `api.py` `auth/token/`                                                        |
+| Permissions: `IsAuthenticatedOrReadOnly`, `IsAuthenticated`, custom request-level and object-level | `core/permissions.py`, `ReviewViewSet`, `ShelfViewSet`                                       |
+| Queryset scoping by user (`get_queryset`), `perform_create`                                        | `LoanViewSet`                                                                                |
+| Throttling: anon/user defaults + `ScopedRateThrottle` on a single action                           | `settings.py`, `LoanViewSet.get_throttles`                                                   |
+| Versioning: `URLPathVersioning` (`/api/v1/`), version-aware `reverse`                              | `urls.py`, `settings.py`                                                                     |
+| Custom `APIException` (409) and custom `EXCEPTION_HANDLER`                                         | `core/exceptions.py`, `LoanViewSet.return_loan`                                              |
+| OpenAPI schema + Swagger/Redoc (drf-spectacular), `extend_schema`, `inline_serializer`             | `api.py`, `core/views.py`                                                                    |
+| Testing: `APIClient`, `force_authenticate`, `credentials()`, pytest fixtures                       | `conftest.py`, `apps/*/tests/`                                                               |
 
 ## Things to try
 
