@@ -3,11 +3,57 @@ name = "django-rest-framework-playground"
 version = "0.1.0"
 description = "A playground DRF project"
 readme = "README.md"
-authors = [
-    { name = "Bruno Alla", email = "oss@browniebroke.com" }
-]
+authors = [ { name = "Bruno Alla", email = "oss@browniebroke.com" } ]
 requires-python = "==3.14.*"
-dependencies = [
-    "django==6.1.1",
-    "djangorestframework==3.18.1",
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.14",
 ]
+dependencies = [
+  "django==6.1.1",
+  "djangorestframework==3.18.1",
+  "psycopg[binary]==3.3.5",
+]
+
+[dependency-groups]
+dev = [
+  "coverage",
+  "pytest>=9,<10",
+  "pytest-django>=4.5,<5",
+]
+
+[tool.ruff]
+target-version = "py314"
+line-length = 120
+lint.select = [
+  "B",   # flake8-bugbear
+  "C4",  # flake8-comprehensions
+  "E",   # pycodestyle
+  "F",   # pyflake
+  "I",   # isort
+  "RUF", # ruff specific
+  "S",   # flake8-bandit
+  "UP",  # pyupgrade
+  "W",   # pycodestyle
+]
+lint.ignore = [
+  "D100", # Missing docstring in public module
+  "D104", # Missing docstring in public package
+  "D107", # Missing docstring in `__init__`
+  "D203", # 1 blank line required before class docstring
+  "D212", # Multi-line docstring summary should start at the first line
+  "D401", # First line of docstring should be in imperative mood
+]
+lint.per-file-ignores."conftest.py" = [ "D100" ]
+lint.per-file-ignores."tests/**/*" = [
+  "D100",
+  "D101",
+  "D102",
+  "D103",
+  "D104",
+  "S101",
+]
+
+[tool.pytest]
+addopts = [ "-v", "-Wonce" ]
+DJANGO_SETTINGS_MODULE = "drf_playground.settings"
