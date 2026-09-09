@@ -11,7 +11,9 @@ classifiers = [
 ]
 dependencies = [
   "django==6.1.1",
+  "django-filter==26.1",
   "djangorestframework==3.18.1",
+  "drf-spectacular==0.30.0",
   "psycopg[binary]==3.3.5",
 ]
 
@@ -43,8 +45,10 @@ lint.ignore = [
   "D203", # 1 blank line required before class docstring
   "D212", # Multi-line docstring summary should start at the first line
   "D401", # First line of docstring should be in imperative mood
+  "RUF012", # Mutable class attributes: Django/DRF class-level config lists are the idiom
 ]
-lint.per-file-ignores."conftest.py" = [ "D100" ]
+lint.per-file-ignores."**/migrations/*" = [ "E501" ]
+lint.per-file-ignores."conftest.py" = [ "D100", "S106" ]
 lint.per-file-ignores."**/tests/**/*" = [
   "D100",
   "D101",
