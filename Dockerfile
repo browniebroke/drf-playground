@@ -51,4 +51,4 @@ WORKDIR /app
 
 EXPOSE 8000
 
-CMD ["python","manage.py","runserver","0.0.0.0:8000"]
+CMD ["granian","--interface","wsgi","--host","0.0.0.0","--port","8000","drf_playground.wsgi:application"]
