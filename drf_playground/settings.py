@@ -34,6 +34,8 @@ CSRF_TRUSTED_ORIGINS = []
 if fly_app_name := os.getenv("FLY_APP_NAME"):
     CSRF_TRUSTED_ORIGINS.append(f"https://{fly_app_name}.fly.dev")
 
+LOGIN_REDIRECT_URL = "/api/v1/"
+LOGOUT_REDIRECT_URL = "/api/v1/"
 
 # Application definition
 
