@@ -21,6 +21,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 COPY . /app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --locked
+RUN /app/.venv/bin/python manage.py collectstatic --noinput
 
 # Then, use a final image without uv
 FROM python:${PYTHON_VERSION}-slim-trixie

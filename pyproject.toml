@@ -16,6 +16,7 @@ dependencies = [
   "drf-spectacular==0.30",
   "granian==2.8.3",
   "psycopg[binary]==3.3.5",
+  "whitenoise",
 ]
 
 [dependency-groups]
