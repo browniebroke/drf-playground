@@ -149,7 +149,7 @@ source = { url = "https://github.com/browniebroke/django-rest-framework/archive/
 dependencies = [
     { name = "django" },
 ]
-sdist = { hash = "sha256:50dadfcf12af089cd10ce6ca27255a28ba0ae5332c9a4b0f3b84dd4c0bbb9fd3" }
+sdist = { hash = "sha256:641c61bd4980ebc9dfc52ae755f36ad12061001f140289e26b54b36d2a138a5e" }
 
 [package.metadata]
 requires-dist = [{ name = "django", specifier = ">=5.2" }]
