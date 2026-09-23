@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/6.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -22,9 +23,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-th0e+80_e5(h*-8!_i8&!e)wzz&b3uc0c*edp-ggcz%$@$b9lu"  # noqa: S105
 
-DEBUG = bool(os.getenv("DEBUG", "1"))
+DEBUG = os.getenv("DEBUG", "1").lower() in ("1", "true", "yes")
 
 ALLOWED_HOSTS = ["*"]
+
+# Fly.io terminates TLS at its proxy and forwards X-Forwarded-Proto.
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+CSRF_TRUSTED_ORIGINS = []
+if fly_app_name := os.getenv("FLY_APP_NAME"):
+    CSRF_TRUSTED_ORIGINS.append(f"https://{fly_app_name}.fly.dev")
 
 
 # Application definition
