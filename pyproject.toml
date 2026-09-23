@@ -68,3 +68,6 @@ skip = "uv.lock"
 [tool.pytest]
 addopts = [ "-v", "-Wonce" ]
 DJANGO_SETTINGS_MODULE = "drf_playground.settings"
+
+[tool.uv.sources]
+djangorestframework = { url = "https://github.com/browniebroke/django-rest-framework/archive/upgrade/browsable-api-bs-5.zip" }
