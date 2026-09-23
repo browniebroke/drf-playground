@@ -59,6 +59,10 @@ lint.per-file-ignores."**/tests/**/*" = [
 ]
 lint.per-file-ignores."conftest.py" = [ "D100", "S106" ]
 
+[tool.codespell]
+builtin = "clear,rare,code,names,en-GB_to_en-US"
+ignore-words-list = "statics"
+
 [tool.pytest]
 addopts = [ "-v", "-Wonce" ]
 DJANGO_SETTINGS_MODULE = "drf_playground.settings"
