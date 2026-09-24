@@ -128,7 +128,7 @@ dev = [
 requires-dist = [
     { name = "django", specifier = "==6.1.1" },
     { name = "django-filter", specifier = "==26.1" },
-    { name = "djangorestframework", url = "https://github.com/browniebroke/django-rest-framework/archive/1ba9173ca8ed93f24146428a779ba7ae82776b9a.zip" },
+    { name = "djangorestframework", url = "https://github.com/browniebroke/django-rest-framework/archive/828a1e8d53418c72d916d00cd1c41181a8f28e1b.zip" },
     { name = "drf-spectacular", specifier = "==0.30" },
     { name = "granian", specifier = "==2.8.3" },
     { name = "psycopg", extras = ["binary"], specifier = "==3.3.5" },
@@ -145,11 +145,11 @@ dev = [
 [[package]]
 name = "djangorestframework"
 version = "3.18.1"
-source = { url = "https://github.com/browniebroke/django-rest-framework/archive/1ba9173ca8ed93f24146428a779ba7ae82776b9a.zip" }
+source = { url = "https://github.com/browniebroke/django-rest-framework/archive/828a1e8d53418c72d916d00cd1c41181a8f28e1b.zip" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { hash = "sha256:8731351e2a6ee9590da837fb30843f42132a467187205daae05cab4af4bb8deb" }
+sdist = { hash = "sha256:f5bfa459917e1e600b33f0e45d326bc487e3a3bb5633291ce3b9cb3ecfbe7f64" }
 
 [package.metadata]
 requires-dist = [{ name = "django", specifier = ">=5.2" }]
