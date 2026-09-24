@@ -26,6 +26,9 @@ dev = [
   "pytest-django>=4.5,<5",
 ]
 
+[tool.uv]
+sources.djangorestframework = { url = "https://github.com/browniebroke/django-rest-framework/archive/828a1e8d53418c72d916d00cd1c41181a8f28e1b.zip" }
+
 [tool.ruff]
 target-version = "py314"
 line-length = 120

@@ -128,7 +128,7 @@ dev = [
 requires-dist = [
     { name = "django", specifier = "==6.1.1" },
     { name = "django-filter", specifier = "==26.1" },
-    { name = "djangorestframework", specifier = "==3.18.1" },
+    { name = "djangorestframework", url = "https://github.com/browniebroke/django-rest-framework/archive/828a1e8d53418c72d916d00cd1c41181a8f28e1b.zip" },
     { name = "drf-spectacular", specifier = "==0.30" },
     { name = "granian", specifier = "==2.8.3" },
     { name = "psycopg", extras = ["binary"], specifier = "==3.3.6" },
@@ -145,14 +145,14 @@ dev = [
 [[package]]
 name = "djangorestframework"
 version = "3.18.1"
-source = { registry = "https://pypi.org/simple" }
+source = { url = "https://github.com/browniebroke/django-rest-framework/archive/828a1e8d53418c72d916d00cd1c41181a8f28e1b.zip" }
 dependencies = [
     { name = "django" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/8a/2e/b3ce9d449b1ed9f9dd74fb7dfbc5f20860d5f40c2b4b10a2c3eabd8ff579/djangorestframework-3.18.1.tar.gz", hash = "sha256:605d79fa2ec2f02905492e5ea13d903c2d842d0b4c915a57f7bf02ab9f3c91dd", size = 915653, upload-time = "2026-09-07T18:04:08.288Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/e8/83/5ed615e47339d8e65f62eb1a8133f8f046492eb3a25ad40d90acb9a208b3/djangorestframework-3.18.1-py3-none-any.whl", hash = "sha256:f1409d698967aaf82d5d98d76b549c8fba8bd92ebd0d83d24454508f72168dc2", size = 901373, upload-time = "2026-09-07T18:04:06.237Z" },
-]
+sdist = { hash = "sha256:f5bfa459917e1e600b33f0e45d326bc487e3a3bb5633291ce3b9cb3ecfbe7f64" }
+
+[package.metadata]
+requires-dist = [{ name = "django", specifier = ">=5.2" }]
 
 [[package]]
 name = "drf-spectacular"
