@@ -10,7 +10,7 @@ classifiers = [
   "Programming Language :: Python :: 3.14",
 ]
 dependencies = [
-  "django==6.1.1",
+  "django==6.1.2",
   "django-filter==26.2",
   "djangorestframework==3.18.1",
   "drf-spectacular==0.30",
