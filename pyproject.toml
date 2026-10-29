@@ -14,7 +14,7 @@ dependencies = [
   "django-filter==26.2",
   "djangorestframework==3.18.3",
   "drf-spectacular==0.30",
-  "granian==2.8.5",
+  "granian==2.8.7",
   "psycopg[binary]==3.3.6",
   "whitenoise",
 ]
