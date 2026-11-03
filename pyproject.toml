@@ -15,7 +15,7 @@ dependencies = [
   "djangorestframework==3.18.3",
   "drf-spectacular==0.30",
   "granian==2.8.7",
-  "psycopg[binary]==3.3.6",
+  "psycopg[binary]==3.3.7",
   "whitenoise",
 ]
 
