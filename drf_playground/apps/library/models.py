@@ -38,6 +38,8 @@ class Review(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="reviews")
     rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     body = models.TextField(blank=True)
+    # Tri-state: yes / no / not answered. Exercises nullable ``BooleanField`` rendering in the browsable API.
+    recommended = models.BooleanField(null=True, blank=True, help_text="Would you recommend this book?")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

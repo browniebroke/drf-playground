@@ -58,7 +58,18 @@ class ReviewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Review
-        fields = ["id", "book", "book_title", "author", "author_name", "rating", "body", "created_at", "updated_at"]
+        fields = [
+            "id",
+            "book",
+            "book_title",
+            "author",
+            "author_name",
+            "rating",
+            "body",
+            "recommended",
+            "created_at",
+            "updated_at",
+        ]
         validators = [
             UniqueTogetherValidator(
                 queryset=Review.objects.all(),
