@@ -27,7 +27,7 @@ dev = [
 ]
 
 [tool.uv]
-sources.djangorestframework = { url = "https://github.com/browniebroke/django-rest-framework/archive/828a1e8d53418c72d916d00cd1c41181a8f28e1b.zip" }
+sources.djangorestframework = { url = "https://github.com/browniebroke/django-rest-framework/archive/b7babeb79b96cc9c1d4af2d62f9633be9ab73c5a.zip" }
 
 [tool.ruff]
 target-version = "py314"
