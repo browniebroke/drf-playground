@@ -1,5 +1,5 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-app = 'drf-playground'
+app = 'drf-playground-bs5'
 primary_region = 'lhr'
 console_command = '/code/manage.py shell'
 
